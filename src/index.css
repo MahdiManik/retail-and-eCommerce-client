@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "MyAwesomeFont";
+  src: url("my-awesome-font-package/fonts/MyAwesomeFont.ttf") format("truetype");
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

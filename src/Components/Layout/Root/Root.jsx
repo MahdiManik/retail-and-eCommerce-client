@@ -3,9 +3,9 @@ import Navbar from "../../Sheared/Navbar/Navbar";
 
 const Root = () => {
   return (
-    <div className="font-myFont bg-white">
+    <div className="font-myFont bg-white text-black">
       <Navbar></Navbar>
-      <div className="max-w-6xl mx-auto">
+      <div className="">
         <Outlet></Outlet>
       </div>
     </div>

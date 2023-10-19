@@ -31,16 +31,31 @@ const Navbar = () => {
             <NavLink to={"/login"}>Login</NavLink>
           </ul>
         </div>
-        <div>
+        <div className="flex justify-center items-center gap-2">
+          <img className="w-10 rounded-full " src={logo} alt="" />
           <i className="text-2xl text-black font-bold">Alif Shop</i>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal md:flex md:gap-16 text-base  text-[#474747] px-1">
-          <NavLink to={"/"}>Home</NavLink>
-          <NavLink to={"/add-products"}>Add Product</NavLink>
-          <NavLink to={"/add-cart"}>Add Cart</NavLink>
-          <NavLink to={"/login"}>Login</NavLink>
+        <ul className="menu menu-horizontal md:flex md:gap-16 text-base  text-[#474747] px-1 ">
+          <NavLink className="hover:underline hover:text-black" to={"/"}>
+            Home
+          </NavLink>
+          <NavLink
+            className="hover:underline hover:text-black"
+            to={"/add-products"}
+          >
+            Add Product
+          </NavLink>
+          <NavLink
+            className="hover:underline hover:text-black"
+            to={"/add-cart"}
+          >
+            Add Cart
+          </NavLink>
+          <NavLink className="hover:underline hover:text-black" to={"/login"}>
+            Login
+          </NavLink>
         </ul>
       </div>
       <div className="navbar-end">

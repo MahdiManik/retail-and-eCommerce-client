@@ -4,19 +4,17 @@ import { useLoaderData } from "react-router-dom";
 
 const Brand = () => {
   const dataLoaded = useLoaderData();
-  //  console.log(dataLoaded);
 
   const [brands, setBrands] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:7000/brand")
+    fetch("https://retail-and-e-commerce-server.vercel.app/brand")
       .then((res) => res.json())
       .then((data) => {
         const dataFilter = data.filter(
           (item) => item.brand.toLowerCase() === dataLoaded.brand.toLowerCase()
         );
         setBrands(dataFilter);
-        //console.log(dataFilter);
       });
   }, [dataLoaded.brand]);
 

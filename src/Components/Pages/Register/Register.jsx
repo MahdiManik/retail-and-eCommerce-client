@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Sheared/AuthProvider/AuthProvider";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, profileUpdate } = useContext(AuthContext);
   const [error, setError] = useState("");
 
   const handleRegister = (e) => {
@@ -28,6 +28,9 @@ const Register = () => {
 
       createUser(email, password)
         .then((result) => {
+          profileUpdate(name, photo).then((result) =>
+            console.log("profile updated", result)
+          );
           console.log(result.user);
           Swal.fire({
             title: "Sweet!",
@@ -38,6 +41,7 @@ const Register = () => {
             imageHeight: 200,
             imageAlt: "Welcome image",
           });
+          form.reset();
         })
 
         .catch((error) => console.error(error));

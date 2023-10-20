@@ -11,7 +11,7 @@ const AddProducts = () => {
     const price = form.price.value;
     const details = form.details.value;
     const photo = form.photo.value;
-    const bannerPhoto = form.bannerPhoto.value;
+
     const productValue = {
       name,
       brand,
@@ -20,11 +20,10 @@ const AddProducts = () => {
       price,
       details,
       photo,
-      bannerPhoto,
     };
     console.log(productValue);
 
-    fetch("http://localhost:7000/brand/", {
+    fetch("https://retail-and-e-commerce-server.vercel.app/brand", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -143,7 +142,3 @@ const AddProducts = () => {
 };
 
 export default AddProducts;
-
-//  https://i.ibb.co/QNQ1vZG/Smartwatch.jpg
-
-// https://i.ibb.co/Tb6hvVP/Amazon-appstore-Gamescom-36712162161.jpg

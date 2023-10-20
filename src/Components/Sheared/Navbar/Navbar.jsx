@@ -1,6 +1,13 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../../assets/Elegant Orange Smile Shop Logo.png";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut();
+  };
   return (
     <div className="navbar h-8">
       <div className="navbar-start">
@@ -23,11 +30,11 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content text-white mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <NavLink to={"/"}>Home</NavLink>
-            <NavLink to={"/add-products"}>Add Product</NavLink>
-            <NavLink to={"/add-cart"}>Add Cart</NavLink>
+            {user && <NavLink to={"/add-products"}>Add Product</NavLink>}
+            {user && <NavLink to={"/add-cart"}>My Cart</NavLink>}
             <NavLink to={"/login"}>Login</NavLink>
           </ul>
         </div>
@@ -41,25 +48,45 @@ const Navbar = () => {
           <NavLink className="hover:underline hover:text-black" to={"/"}>
             Home
           </NavLink>
-          <NavLink
-            className="hover:underline hover:text-black"
-            to={"/add-products"}
-          >
-            Add Product
-          </NavLink>
-          <NavLink
-            className="hover:underline hover:text-black"
-            to={"/add-cart"}
-          >
-            Add Cart
-          </NavLink>
+          {user && (
+            <NavLink
+              className="hover:underline hover:text-black"
+              to={"/add-products"}
+            >
+              Add Product
+            </NavLink>
+          )}
+          {user && (
+            <NavLink
+              className="hover:underline hover:text-black"
+              to={"/add-cart"}
+            >
+              My Cart
+            </NavLink>
+          )}
           <NavLink className="hover:underline hover:text-black" to={"/login"}>
             Login
           </NavLink>
         </ul>
       </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
+      <div className="navbar-end p-1 text-white">
+        {user && <p className="text-black"> {user?.displayName}</p>}
+        {user && (
+          <img
+            className="w-12 h-12 mx-2 rounded-full "
+            src={user?.photoURL}
+            alt=""
+          />
+        )}
+        {!user ? (
+          <NavLink to={"/login"} className="btn btn-error">
+            Login
+          </NavLink>
+        ) : (
+          <button onClick={handleLogOut} className="btn btn-info">
+            Logout
+          </button>
+        )}
       </div>
     </div>
   );

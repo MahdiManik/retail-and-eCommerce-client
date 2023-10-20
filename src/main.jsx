@@ -12,6 +12,9 @@ import PrivateRout from "./Components/Rout/PrivateRout/PrivateRout";
 import AuthProvider from "./Components/Sheared/AuthProvider/AuthProvider";
 import Brand from "./Components/Brand/Brand";
 import ErrorPage from "./Components/Pages/ErrorPage/ErrorPage";
+import Register from "./Components/Pages/Register/Register";
+import Detail from "./Components/Brand/Detail";
+import Update from "./Components/Brand/Update";
 
 const router = createBrowserRouter([
   {
@@ -22,19 +25,30 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:7000/brandName/"),
+        loader: () =>
+          fetch("https://retail-and-e-commerce-server.vercel.app/brandName"),
       },
       {
         path: "/add-products",
-        element: <AddProducts></AddProducts>,
+        element: (
+          <PrivateRout>
+            <AddProducts></AddProducts>,
+          </PrivateRout>
+        ),
       },
       {
         path: "/add-cart",
         element: <AddCart></AddCart>,
+        loader: () =>
+          fetch(`https://retail-and-e-commerce-server.vercel.app/cart`),
       },
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
       },
       {
         path: "/brand/:id",
@@ -44,7 +58,33 @@ const router = createBrowserRouter([
           </PrivateRout>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:7000/brandName/${params.id}`),
+          fetch(
+            `https://retail-and-e-commerce-server.vercel.app/brandName/${params.id}`
+          ),
+      },
+      {
+        path: "/detail/:id",
+        element: (
+          <PrivateRout>
+            <Detail></Detail>
+          </PrivateRout>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://retail-and-e-commerce-server.vercel.app/brand/${params.id}`
+          ),
+      },
+      {
+        path: "/update/:id",
+        element: (
+          <PrivateRout>
+            <Update></Update>
+          </PrivateRout>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://retail-and-e-commerce-server.vercel.app/brand/${params.id}`
+          ),
       },
     ],
   },

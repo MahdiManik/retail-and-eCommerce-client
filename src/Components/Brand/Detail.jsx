@@ -35,20 +35,20 @@ const Detail = () => {
   };
 
   return (
-    <div className="my-12">
-      <div className="h-3/6 flex flex-col justify-center items-center">
-        <img src={photo} alt="" />
+    <div className="my-12 bg-white md:grid md:grid-cols-2 justify-center items-center gap-6 p-6">
+      <div className="p-2 ">
+        <img className="" src={photo} alt="" />
       </div>
-      <div className="flex flex-col justify-center items-center mt-12">
-        <h1 className="mb-5 text-5xl font-bold">{name}</h1>
-        <p className="mb-5 px-6 w-4/6">{details}</p>
-        <p className="mb-5 px-6 w-4/6">{type}</p>
-        <p className="mb-5 px-6 w-4/6">{brand}</p>
+      <div className="flex flex-col  justify-center w-9/12 p-2 items-start mt-12">
+        <h1 className="mb-5 text-4xl font-bold">{name}</h1>
+        <p className="mb-5 ">{details}</p>
+        <p className="mb-5 ">{type}</p>
+        <p className="mb-5 ">{brand}</p>
         <div className="font-bold text-xl">
           <Rater total={5} rating={parseInt(rating)} />
         </div>
 
-        <button onClick={handleAddToCart} className="btn mb-20">
+        <button onClick={handleAddToCart} className="py-2 px-5 border-2 mt-5">
           Add to cart
         </button>
       </div>

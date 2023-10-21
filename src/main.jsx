@@ -15,6 +15,7 @@ import ErrorPage from "./Components/Pages/ErrorPage/ErrorPage";
 import Register from "./Components/Pages/Register/Register";
 import Detail from "./Components/Brand/Detail";
 import Update from "./Components/Brand/Update";
+import Comment from "./Components/Pages/Home/Comment";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRout>
             <AddProducts></AddProducts>,
+          </PrivateRout>
+        ),
+      },
+      {
+        path: "/comment",
+        element: (
+          <PrivateRout>
+            <Comment></Comment>,
           </PrivateRout>
         ),
       },

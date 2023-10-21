@@ -49,7 +49,7 @@ const Update = () => {
       });
   };
   return (
-    <div className="bg-[#F4F3F0] p-20">
+    <div className="border-2 p-20">
       <h2 className="text-4xl font-bold text-center text-black">
         Update The Product
       </h2>

@@ -26,13 +26,10 @@ const Navbar = () => {
     logOut();
   };
   return (
-    <div className="navbar h-8 text-orang-500">
+    <div className="navbar h-8 ">
       <div className="navbar-start">
         <div className="dropdown">
-          <label
-            tabIndex={0}
-            className="btn btn-ghost text-orange-500 lg:hidden"
-          >
+          <label tabIndex={0} className="btn btn-ghost  lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -50,7 +47,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content text-white mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content  mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <NavLink to={"/"}>Home</NavLink>
             {user && <NavLink to={"/add-products"}>Add Product</NavLink>}
@@ -58,58 +55,50 @@ const Navbar = () => {
             <NavLink to={"/login"}>Login</NavLink>
           </ul>
         </div>
-        <div className="flex justify-center items-center gap-2">
-          <img className="w-10 rounded-full " src={logo} alt="" />
-          <i className="text-2xl text-orange-500 font-bold">Alif Shop</i>
+        <div className="flex justify-center items-center ">
+          <img className="w-10 rounded-full p-1" src={logo} alt="" />
+          <i className="text-2xl font-bold">Alif Shop</i>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal md:flex text-orange-500 md:gap-16 px-1 ">
-          <NavLink
-            className="hover:underline text-orange-500 hover:text-orange-500"
-            to={"/"}
-          >
+        <ul className="menu menu-horizontal md:flex md:gap-16 px-1 ">
+          <NavLink className="hover:underline" to={"/"}>
             Home
           </NavLink>
           {user && (
-            <NavLink
-              className="hover:underline hover:text-orange-500"
-              to={"/add-products"}
-            >
+            <NavLink className="hover:underline " to={"/add-products"}>
               Add Product
             </NavLink>
           )}
           {user && (
-            <NavLink
-              className="hover:underline hover:text-orange-500"
-              to={"/add-cart"}
-            >
+            <NavLink className="hover:underline " to={"/add-cart"}>
               My Cart
             </NavLink>
           )}
-          <NavLink
-            className="hover:underline hover:text-orange-500"
-            to={"/login"}
-          >
+          <NavLink className="hover:underline " to={"/login"}>
             Login
           </NavLink>
         </ul>
       </div>
-      <div className="navbar-end p-1 text-orange-400">
+      <div className="navbar-end p-2">
         {user && <p className=""> {user?.displayName}</p>}
         {user && (
           <img
-            className="w-12 h-12 mx-2 rounded-full "
+            className="w-12 h-12 mx-2 p-2 rounded-full "
             src={user?.photoURL}
             alt=""
           />
         )}
         {!user ? (
-          <NavLink to={"/login"} className="btn btn-error">
+          <NavLink to={"/login"} className=" py-1 px-3 border-2">
             Login
           </NavLink>
         ) : (
-          <button onClick={handleLogOut} className="btn btn-info">
+          <button
+            onClick={handleLogOut}
+            className="py-1 px-3 border-2 
+		  "
+          >
             Logout
           </button>
         )}
@@ -119,7 +108,7 @@ const Navbar = () => {
 
         {/* sun icon */}
         <svg
-          className="swap-on fill-current w-10 h-10"
+          className="swap-on fill-current w-8 h-8 p-1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
         >
@@ -127,7 +116,7 @@ const Navbar = () => {
         </svg>
 
         <svg
-          className="swap-off fill-current w-10 h-10"
+          className="swap-off fill-current w-8 h-8 p-1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
         >

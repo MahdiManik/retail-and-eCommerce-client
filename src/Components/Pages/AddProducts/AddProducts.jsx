@@ -46,7 +46,7 @@ const AddProducts = () => {
   };
   return (
     <>
-      <div className="bg-[#F4F3F0] p-20">
+      <div className="border-2 p-20">
         <h2 className="text-4xl font-bold text-center text-black">
           Add New Products
         </h2>
@@ -130,8 +130,7 @@ const AddProducts = () => {
 
           <input
             className="w-full text-center font-bold text-xl 
-		hover:bg-[#D2B48C] border-2 border-[#331A15] py-1 text-black
-		rounded-lg mt-4"
+		border-2 py-2 mt-4"
             type="submit"
             value="Add Products"
           />

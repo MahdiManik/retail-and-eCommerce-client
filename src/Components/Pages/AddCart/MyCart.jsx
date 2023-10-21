@@ -2,10 +2,18 @@ import PropTypes from "prop-types";
 import Rater from "react-rater";
 import "react-rater/lib/react-rater.css";
 import Swal from "sweetalert2";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const MyCart = ({ cart, carts, setCarts }) => {
   const { _id, name, brand, type, rating, price, photo } = cart || {};
 
+  useEffect(() => {
+    AOS.init({ duration: "1500", delay: "400" });
+    AOS.refresh();
+  }, []);
+  //  console.log("Email", email);
   //  console.log("cart", cart);
   //  console.log("carts", carts);
   //  console.log("setCarts", setCarts);
@@ -21,9 +29,12 @@ const MyCart = ({ cart, carts, setCarts }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result?.isConfirmed) {
-        fetch(`http://localhost:7000/cart/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://retail-and-e-commerce-server-e7c8007ra.vercel.app/cart/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
@@ -38,23 +49,26 @@ const MyCart = ({ cart, carts, setCarts }) => {
   };
 
   return (
-    <div className=" shadow-2xl md:flex mt-6">
+    <div className=" shadow-2xl w-80 mt-6" data-aos="flip-left">
       <figure>
-        <img className=" p-4" src={photo} alt="Album" />
+        <img className="h-60 w-full p-3" src={photo} alt="Album" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{name}</h2>
 
         <div className="flex flex-col justify-center items-start gap-2">
           <p>{brand}</p>
-          <div className="font-bold text-xl">
-            <Rater total={5} rating={parseInt(rating)} />
+          <div className="text-lg font-semibold">
+            <p>Price: ${price}</p>
           </div>
           <p>{type}</p>
-          <p>Price: ${price}</p>
         </div>
+        <Rater total={5} rating={parseInt(rating)} />
         <div className="card-actions justify-end mt-auto">
-          <button onClick={() => handleDelete(_id)} className="btn">
+          <button
+            onClick={() => handleDelete(_id)}
+            className="border-2 py-2 px-5"
+          >
             Delete
           </button>
         </div>

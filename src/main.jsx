@@ -61,11 +61,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/brand/:id",
-        element: (
-          <PrivateRout>
-            <Brand></Brand>
-          </PrivateRout>
-        ),
+        element: <Brand></Brand>,
         loader: ({ params }) =>
           fetch(
             `https://retail-and-e-commerce-server.vercel.app/brandName/${params.id}`

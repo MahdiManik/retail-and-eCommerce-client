@@ -16,7 +16,7 @@ const BrandProducts = ({ brandName }) => {
 
   return (
     <>
-      <div className=" md:h-72  lg:card-side shadow-xl border-2 flex flex-col">
+      <div className="card lg:card-side shadow-xl border-2 flex flex-col">
         <figure>
           <img className="w-full h-full p-2" src={photo} alt="Album" />
         </figure>

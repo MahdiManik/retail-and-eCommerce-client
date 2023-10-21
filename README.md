@@ -1,8 +1,13 @@
-# React + Vite
+# About my project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features
 
-Currently, two official plugins are available:
+- Comment Section Added, when user click comment button, show her/hes Name, and Comment, in down of comment input.
+- Light/dark mode toggle
+- When User click in my cart on menu, show product for the user who is he/ she added
+- Product loaded with brand dynamicly, and six brand product loaded.
+- user can be delete product to the cart.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 Live Links
+
+https://brand-products-ec283.web.app/
